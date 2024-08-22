@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מחירון שירותי AI מוזלים - Ariel AI</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #6C5CE7;
+            --secondary-color: #00CECE;
+            --accent-color: #FFA502;
+            --background-color: #f9f9f9;
+            --card-background: #ffffff;
+            --text-color: #2d3436;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 40px 0;
+            border-radius: 0 0 50% 50% / 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            max-width: 150px;
+            height: auto;
+            filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.2));
+        }
+        h1 {
+            color: white;
+            margin-top: 20px;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .pricing-table {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        .pricing-card {
+            background-color: var(--card-background);
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            width: 300px;
+        }
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        .pricing-header {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+        }
+        .pricing-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            transition: transform 0.3s ease;
+        }
+        .pricing-card:hover .pricing-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        .pricing-title {
+            font-size: 1.8em;
+            margin: 0;
+        }
+        .pricing-price {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin: 20px 0 10px;
+        }
+        .pricing-description {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+        .pricing-features {
+            padding: 30px 20px;
+            list-style-type: none;
+        }
+        .pricing-features li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .pricing-features i {
+            color: var(--accent-color);
+            margin-left: 10px;
+        }
+        .pricing-button {
+            display: block;
+            background-color: var(--accent-color);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            margin: 10px auto; /* Center the buttons and add margin */
+            width: 80%; /* Adjust the width to ensure nice spacing */
+        }
+        .pricing-button:hover {
+            background-color: #ff9f43;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        .youtube-video {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .carousel {
+            position: relative;
+            width: 300px;
+            margin: 20px auto;
+        }
+        .carousel img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .carousel-buttons {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            transform: translateY(-50%);
+        }
+        .carousel-button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="https://arielai.co.il/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fmamahood-be367.appspot.com%2Fo%2FexpertFiles%252Fb10XkBgWHvXPL5ac4Xez5N8M3gA3%252Fwebsite%252F1716210729449-DALL%25C2%25B7E%25202024-05-20%252016.11.45%2520-%2520A%2520logo%2520for%2520a%2520business%2520named%2520%27Ariel%2520AI%27%2520that%2520focuses%2520on%2520AI%2520usage%2520tutorials%2520and%2520news%2520on%2520social%2520media.%2520The%2520logo%2520should%2520be%2520modern%2520and%2520tech-savvy%252C%2520featurin.webp%3Falt%3Dmedia%26token%3D6025a106-daee-4374-b95d-f73cec6765e3&w=640&q=75" alt="Ariel AI Logo" class="logo">
+        <h1>מחירון שירותי AI מוזלים - תכונות מלאות (בתוקף עד ה-01.09.24 בלבד!)</h1>
+    </div>
+    
+    <div class="container">
+        <div class="pricing-table">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <div class="pricing-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h2 class="pricing-title">סרטון אנימציה</h2>
+                    <div class="pricing-price">₪350</div>
+                    <p class="pricing-description">פרסומת אנימציה מרהיבה</p>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check-circle"></i>עד דקה</li>
+                    <li><i class="fas fa-check-circle"></i>איכות גבוהה מאוד</li>
+                    <li><i class="fas fa-check-circle"></i>עד 3 דמויות</li>
+                    <li><i class="fas fa-check-circle"></i>אפקטים וסצינות מורכבות</li>
+                    <li><i class="fas fa-check-circle"></i>יצירת תסריט ומוזיקה</li>
+                </ul>
+                <div class="youtube-video">
+                    <iframe width="280" height="157" src="https://www.youtube.com/embed/6qg0el_7T74" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <a href="https://wa.me/+972534122548?text=היי%2C%20מעוניין%20בסרטון%20אנימציה%20עבור%20העסק." class="pricing-button">הזמן עכשיו</a>
+            </div>
+            
+            <div class="pricing-card pulse">
+                <div class="pricing-header">
+                    <div class="pricing-icon">
+                        <i class="fas fa-mask"></i>
+                    </div>
+                    <h2 class="pricing-title">דייפ-פייק</h2>
+                    <div class="pricing-price">₪350</div>
+                    <p class="pricing-description">סרטון פרסומת מציאותי</p>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check-circle"></i>עד דקה</li>
+                    <li><i class="fas fa-check-circle"></i>רמת דיוק גבוהה</li>
+                    <li><i class="fas fa-check-circle"></i>דמות פרטית או ציבורית</li>
+                    <li><i class="fas fa-check-circle"></i>שימוש בצילומים מקוריים</li>
+                </ul>
+                <div class="youtube-video">
+                    <iframe width="280" height="157" src="https://www.youtube.com/embed/Y1LROQ474w8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <a href="https://wa.me/+972534122548?text=היי%2C%20מעוניין%20בפרסומת%20עם%20דייפ-פייק%20עבור%20העסק." class="pricing-button">הזמן עכשיו</a>
+            </div>
+            
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <div class="pricing-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h2 class="pricing-title">פרסומת ריאליסטית</h2>
+                    <div class="pricing-price">₪350</div>
+                    <p class="pricing-description">סרטון פרסומת ריאליסטי</p>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check-circle"></i>עד דקה</li>
+                    <li><i class="fas fa-check-circle"></i>עד 5 דמויות</li>
+                    <li><i class="fas fa-check-circle"></i>מורכבות סצנות ואפקטים</li>
+                    <li><i class="fas fa-check-circle"></i>גרפיקה ואלמנטים ויזואליים</li>
+                </ul>
+                <div class="youtube-video">
+                    <iframe width="280" height="157" src="https://www.youtube.com/embed/9edksKldpwU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <a href="https://wa.me/+972534122548?text=היי%2C%20מעוניין%20בפרסומת%20ריאליסטית%20עבור%20העסק." class="pricing-button">הזמן עכשיו</a>
+            </div>
+            
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <div class="pricing-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h2 class="pricing-title">קליפ מוזיקלי</h2>
+                    <div class="pricing-price">₪500</div>
+                    <p class="pricing-description">קליפ מוזיקלי מרהיב</p>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check-circle"></i>עד 4 דקות</li>
+                    <li><i class="fas fa-check-circle"></i>סגנון היברידי</li>
+                    <li><i class="fas fa-check-circle"></i>אווירה ייחודית</li>
+                    <li><i class="fas fa-check-circle"></i>שילוב עלילה ואפקטים מיוחדים</li>
+                </ul>
+                <div class="youtube-video">
+                    <iframe width="280" height="157" src="https://www.youtube.com/embed/9wC9X5Djohs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <p style="font-size: 0.9em; color: grey;">*הסרטון לא נוצר על ידי השירות</p>
+                </div>
+                <a href="https://wa.me/+972534122548?text=היי%2C%20מעוניין%20בקליפ%20מוזיקלי%20עבור%20העסק." class="pricing-button">הזמן עכשיו</a>
+            </div>
+            
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <div class="pricing-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h2 class="pricing-title">צ'אט בוט</h2>
+                    <div class="pricing-price">₪1,000</div>
+                    <p class="pricing-description">צ'אט בוט חכם לוואטסאפ</p>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check-circle"></i>שירות לקוחות, מכירות, ייעוץ</li>
+                    <li><i class="fas fa-check-circle"></i>רמת דיוק גבוהה מאוד</li>
+                    <li><i class="fas fa-check-circle"></i>אינטגרציות עם מערכות אחרות</li>
+                    <li><i class="fas fa-check-circle"></i>תמיכה במספר שפות</li>
+                </ul>
+                <a href="https://wa.me/972504104122?text=Hi" class="pricing-button">Link to Ariel AI Bot</a>
+                <a href="https://wa.me/+972534122548?text=היי%2C%20מעוניין%20בצ'אט%20בוט%20עבור%20העסק." class="pricing-button">הזמן עכשיו</a>
+            </div>
+            
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <div class="pricing-icon">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <h2 class="pricing-title">תמונות תדמית</h2>
+                    <div class="pricing-price">₪750</div>
+                    <p class="pricing-description">תמונות AI מותאמות אישית</p>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check-circle"></i>יצירת מודל AI אישי</li>
+                    <li><i class="fas fa-check-circle"></i>מספר בלתי מוגבל של תמונות</li>
+                    <li><i class="fas fa-check-circle"></i>סגנונות שונים</li>
+                    <li><i class="fas fa-check-circle"></i>שימוש למטרות שיווק ופרסום</li>
+                </ul>
+                <div class="carousel">
+                    <img id="carousel-image" src="https://fal.media/files/kangaroo/yosLahj-c38bJNVB4DCdd_04a58e321e79488391cf3bb64012ef60.png" alt="Image 1">
+                    <div class="carousel-buttons">
+                        <button class="carousel-button" onclick="prevImage()">&#8249;</button>
+                        <button class="carousel-button" onclick="nextImage()">&#8250;</button>
+                    </div>
+                </div>
+                <a href="https://wa.me/+972534122548?text=היי%2C%20מעוניין%20בתמונות%20תדמית%20עבור%20העסק." class="pricing-button">הזמן עכשיו</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const images = [
+            "https://fal.media/files/kangaroo/yosLahj-c38bJNVB4DCdd_04a58e321e79488391cf3bb64012ef60.png",
+            "https://fal.media/files/monkey/t8UOmyh6RBSV-f-ic5zcR_9bd4b735d9cd4d6ead5d67bb88b2dd7d.png",
+            "https://fal.media/files/kangaroo/1xIkHBLbPSb8w5jjl7v2Y_4d7e87c0a2ac422ea6e772255c94f3a5.png",
+            "https://fal.media/files/tiger/TMqfloKj9UAbSWk9aK6Af_b4a5f1c29bd549298005f056b9cd2f4c.png",
+            "https://fal.media/files/penguin/uM4KP6p5yarwafSfJRWC5_b646c9e945c54ed58f6bb9c29083c812.png",
+            "https://fal.media/files/panda/S0ch8OTM8KLRVuwCGFi_z_769e7b709f84490d845ff18c7bb07471.png"
+        ];
+        let currentImageIndex = 0;
+
+        function showImage(index) {
+            const imageElement = document.getElementById("carousel-image");
+            imageElement.src = images[index];
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            showImage(currentImageIndex);
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            showImage(currentImageIndex);
+        }
+    </script>
+</body>
+</html>
